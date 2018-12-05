@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Toggles the keyboard backlight for a sony vaio
+# VPC series laptop
+
+DIR=/sys/devices/platform/sony-laptop/kbd_backlight
+
+if grep 1 $DIR
+then
+	echo 0 > $DIR
+	notify-send "KEYBOARD BACKLIGHT OFF"
+else
+	echo 1 > $DIR
+	notify-send "KEYBOARD BACKLIGHT ON"
+fi
+
+exit 0
